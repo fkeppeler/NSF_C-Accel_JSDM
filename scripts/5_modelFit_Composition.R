@@ -319,10 +319,10 @@ for (i in 1:length (pred_type)){
   }
 }
 
-
+#Save results
 write.table (So_Comm,file="results/perf_metrics_com.csv",sep=",",row.names=FALSE)
 
-
+#Split "model type" col into two new cols
 So_Comm <- So_Comm %>%
   separate (model_type, c("Model","Data"), sep = "_")
 
