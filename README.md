@@ -1,7 +1,7 @@
 # Are Joint Species Models better than Single Species Models to predict species- and community-level responses to climate change?
 
 ### Project goals
-The goal of our project is to fit a joint species distribution model (JSDM) to the northeast USA bottom trawl data and compare its results with single-species models (SDM). A secondary objective is to use the JSDM created to predict species and community response to future climate scenarios in the northeast USA.
+The goal of our project is to fit a joint species distribution model (JSDM) to the northeast USA bottom trawl data and compare its results with single-species models (SDM). A second objective is to use the created JSDM to predict species and community response to future climate scenarios in the northeast USA.
 
 ### Repository contents
 This repository contains R scripts used for data extraction and cleaning  (script 1), model construction (script 2), model fitting (script 3), hindcast (script 4), model comparison, and model extrapolation for future scenarios. Below, I listed some information about the databases, modeling approach, the metrics used for model comparisons, and the future scenario used.    
