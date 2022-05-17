@@ -9,15 +9,15 @@ cores= detectCores()-1
 cl <- makeCluster(cores) 
 registerDoParallel(cl)
 
-#Retrieve name of the model
+
 Sp_Spec_occ <- foreach(
   i= c(1:520),
   .combine=rbind,
   .packages = c("dplyr","Hmsc", "abind") 
 ) %dopar% {
   
+  #Retrieve name of the model
   model_number <- i
-  
   file_name <- paste0("fitted_models/model_",model_number,"_thin500_LS.RData")
   
   #Load model
