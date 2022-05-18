@@ -89,7 +89,7 @@ hauls_filtered <- hauls_filtered %>%
 dt <- list ()
 dt_names <- c('extrap','interp')
 
-dt [[1]] <- hauls_filtered %>% subset (year <= 2004) %>% rownames() #extrapolation
+dt [[1]] <- hauls_filtered %>% subset (year <= 2011) %>% rownames() #extrapolation
 
 set.seed(666)
 dt [[2]] <- sample(rownames(wide_dat), dt [[1]] %>% length()) #interpolation
@@ -150,7 +150,6 @@ for (i in 1:length(dt)){
                             LatLong_id = paste0 (latgrid,longrid) %>% factor() %>% as.numeric)
   
   studyDesign <- data.frame (Year = factor(hauls_train$year),
-                             #LatLong_SS = factor(hauls_train$LatLong_id),
                              LatLong_LS = factor(hauls_train$grid))
   
   #Random component
@@ -176,7 +175,6 @@ for (i in 1:length(dt)){
                        distr="probit",
                        studyDesign=studyDesign,
                        ranLevels=list(Year = rL.temporal,
-                                      #LatLong_SS = rL.spatial_fine,
                                       LatLong_LS = rL.spatial_coarse
                        ))
   
@@ -189,7 +187,6 @@ for (i in 1:length(dt)){
                          distr="probit",
                          studyDesign=studyDesign,
                          ranLevels=list(Year = rL.temporal,
-                                        #LatLong_SS = rL.spatial_fine,
                                         LatLong_LS = rL.spatial_coarse
                          ))
   names (m_list)[k+1] <- paste0 ('m.Ypa.cs_',dt_names[i])
@@ -203,7 +200,6 @@ for (i in 1:length(dt)){
                          distr="probit",
                          studyDesign=studyDesign,
                          ranLevels=list(Year = rL.temporal,
-                                        #LatLong_SS = rL.spatial_fine,
                                         LatLong_LS = rL.spatial_coarse
                                         ))
     names (m_list)[k] <- paste (j,dt_names[i],sep='_')
